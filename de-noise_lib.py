@@ -1,7 +1,7 @@
 # Copyright © 2016 Nemikhin Igor. All rights reserved. Licensed under GNU GPLv3.
 # Author Nemikhin Igor.
 # License: http://www.gnu.org/licenses/gpl.html
-# Source code can be found there:
+# Source code can be found there: https://github.com/YgReEk/De-noise-video-filter
 # Project is using OpenCV 3, which license can be found there: http://opencv.org/license.html
 
 # Warning! Algorithm used in program very hard computationally and needs lots of time and free memory, so be patient.
