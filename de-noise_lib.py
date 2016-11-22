@@ -7,13 +7,14 @@
 # Warning! Algorithm used in program very hard computationally and needs lots of time and free memory, so be patient.
 # Denoising of 11-sec video takes ~5 hours 10 minutes on Windows 8.1 x64, Anaconda 4.2, OpenCV 3.1, PyCharm 2016.2.3,
 # Intel Haswell 4771, 16 Gb DDR3. Average CPU load ~90-100%, max memory usage ~3.9 Gb, usual priority process.
-# That gives ~0.01527 frames/second (284 frames)
+# For 3-sec video it takes ~1 hour 10 minutes, max memory usage ~1.3 Gb, rest the same
+# That gives ~0.017 frames/second and increasing in memory using average 30% per hour started from ~2 * uncompressed avi
 
 # import OpenCV 3
 import cv2
 
 # imported videofile
-iaddr = r'C:\Users\Игорь\test.avi'
+iaddr = r'C:\Users\Игорь\test2.avi'
 cap = cv2.VideoCapture(iaddr)
 # resolution we need
 vwidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -25,21 +26,27 @@ fps = cap.get(cv2.CAP_PROP_FPS)
 fourcc = cv2.VideoWriter_fourcc(*'MJPG')
 
 # search window size for filtering, more ws means more computation (recommended by author - 21)
-if int(vwidth % 60) == 0:
-    ws = vwidth // 60 + 1
+if int((vwidth // 60) % 2) == 0:
+    ws = int(vwidth // 60 + 1)
 else:
-    ws = vwidth // 60
-# strength of filter (first fs in filter parameters is for luminance noise, second for color noise)
-fs = 3
+    ws = int(vwidth // 60)
+# strength of filter (first fs for luminance noise, second for color noise; stronger filter -> less details)
+fs = int(4)
+hs = int(5)
 # how many frames we take for denoising (this temporalWindowSize should be odd)
-tws = 5
+tws = int(5)
 # target image to denoise index in range(tws)
-itdi = tws // 2
+itdi = int(tws // 2)
 
 # sequence of filtered frames
 sq = []
 # sequence of unfiltered frames (input video)
 vid = []
+# estimated denoising time in seconds (for FullHD average fpeed = 0.017 frames/sec):
+edt = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)/0.017)
+# estimated memory use in Mb
+# (based on empirical evidence equals 2 uncompressed 8-bit depth avi + ~30% for each hour of denoising)
+emt = int((2*vwidth*vheight*3*cap.get(cv2.CAP_PROP_FRAME_COUNT)+0.3*(edt/3600))/1024/1024)
 # output video as VideoWriter object
 oaddr = r'C:\Users\Игорь\output.avi'
 out = cv2.VideoWriter(oaddr, fourcc, fps, outres, True)
@@ -61,7 +68,7 @@ cap.release()
 for i in range(itdi):
     sq.append(cv2.resize(vid[i], outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
-for k in range(len(vid) - itdi  * 2):
+for k in range(len(vid) - itdi * 2):
     # create a list of temporalWindowSize frames
     img = [vid[k + 1] for i in range(tws)]
 
@@ -70,7 +77,7 @@ for k in range(len(vid) - itdi  * 2):
 
     # more method syntax details could be found there:
     # https://shimat.github.io/opencvsharp/html/d12fad98-53b0-c14a-6496-5c52ee633019.htm
-    dst = cv2.fastNlMeansDenoisingColoredMulti(img, itdi, tws, None, fs, fs, 7, ws)
+    dst = cv2.fastNlMeansDenoisingColoredMulti(img, itdi, tws, None, fs, hs, 7, ws)
 
     # there is a probability to use CUDA, but it'll be less accurate: there is no cuda method applicable to video
     # More here: http://docs.opencv.org/trunk/d1/d79/group__photo__denoise.html#ga21abc1c8b0e15f78cd3eff672cb6c476
