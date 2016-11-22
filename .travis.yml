@@ -34,8 +34,8 @@
     "pip install --no-index --find-links=dist/ opencv-python"
   ],
   "script": [
-    "cd tests",
-    "python -m unittest test"
+    #"cd tests",
+    #"python -m unittest test"
   ],
   "group": "stable",
   "dist": "precise",
