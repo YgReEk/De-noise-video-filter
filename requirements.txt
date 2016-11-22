@@ -1,2 +1,2 @@
-pip install python3-numpy
+pip install scipy
 pip install cv2
