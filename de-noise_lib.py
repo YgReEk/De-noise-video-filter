@@ -7,9 +7,10 @@
 # Warning! Algorithm used in program very hard computationally and needs lots of time and free memory, so be patient.
 # Dependency on the resolution is exponentially: ~8.31088e^(1.73277×MP)
 
-# import OpenCV 3 and math module
+# import OpenCV 3, math and numpy modules
 import cv2
 import math
+import numpy as np
 
 # import sentry system
 from raven import Client
@@ -17,7 +18,7 @@ from raven import Client
 client = Client('https://164afd8685654ca2a89b153dbe963b0f:c79397a4affc4e9c8533cb88a0e17b46@sentry.io/116042')
 
 # imported videofile
-iaddr = r'C:\Users\Игорь\test.avi'
+iaddr = r'C:\Users\Игорь\test2.avi'
 cap = cv2.VideoCapture(iaddr)
 # resolution we need
 vwidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -75,7 +76,17 @@ out = cv2.VideoWriter(oaddr, fourcc, fps, outres, True)
 while cap.isOpened():
     ret, frame = cap.read()
     if ret is True:
-        vid.append(frame)
+        if colored is True:
+            vid.append(cv2.resize(frame, outres, 0, 0, interpolation=cv2.INTER_AREA))
+        else:
+            # TODO: Make grayscale images working not like ~hit.
+            # g_frame = np.asarray(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), dtype=np.uint8)
+            # k_frame = np.ndarray(shape=(len(g_frame), len(g_frame[0]), 1), dtype=np.uint8)
+            # for k in range(len(g_frame)):
+            #     for l in range(len(g_frame[k])):
+            #         k_frame[k][l][0] = g_frame[k][l]
+            vid.append(cv2.resize(frame, outres, 0, 0, interpolation=cv2.INTER_AREA))
+
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     else:
@@ -83,12 +94,6 @@ while cap.isOpened():
 
 # free videofile
 cap.release()
-
-# resize video TODO: merge all that into one cycle
-# if colored:
-for i in range(len(vid)):
-    vid[i] = cv2.resize(vid[i], outres, 0, 0, interpolation=cv2.INTER_AREA)
-# else make it monochromatic
 
 if colored:
     # add unfiltered first itdi - 1 frames
@@ -122,6 +127,7 @@ if colored:
             outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
 else:   # comments are the same, so I'd not repeat them
+
     for i in range(itdi):
         sq.append(cv2.resize(
             cv2.fastNlMeansDenoising(vid[i], None, fs, 7, ws),
@@ -138,7 +144,7 @@ else:   # comments are the same, so I'd not repeat them
             outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
 # write the frame TODO write source audio into the videofile
-for i in sq:
+for i in vid:
     out.write(i)
 
 # free videofile
