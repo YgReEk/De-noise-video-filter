@@ -7,12 +7,13 @@
 # Warning! Algorithm used in program very hard computationally and needs lots of time and free memory, so be patient.
 # Dependency on the resolution is exponentially: ~8.31088e^(1.73277×MP)
 
-# import OpenCV 3, math and numpy modules
+# import OpenCV 3, math, numpy modules and some for temporary files
 import cv2
 import math
-import numpy as np
 import shutil
 import tempfile
+# yes, we don't use it directly, but OpenCV is based on it and it is recommended to import it also
+import numpy as np
 
 # import sentry system
 from raven import Client
@@ -23,8 +24,10 @@ video = False
 # colored video/image and color rate
 colored = True
 if colored is True:
+    # one bite for one rgb chanel
     colorrate = 3
 else:
+    # and one for grayscale
     colorrate = 1
 
 # define input address and output one, in the same directory
@@ -33,13 +36,16 @@ oaddr = iaddr[:iaddr.rfind('\\')] + '\\' + 'output' + iaddr[iaddr.rfind('.'):]
 
 # imported image/videofile
 if video is True:
+    # define mostly all variables that'll be used in video denoising
     cap = cv2.VideoCapture(iaddr)
+    # resolution of video
     vwidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     vheight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     # fps rate we need
     fps = cap.get(cv2.CAP_PROP_FPS)
     # define the codec, more fourcc codes there: http://www.fourcc.org/codecs.php
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+    # how many frames video have; needed to time and memory use estimation
     num_frames = cap.get(cv2.CAP_PROP_FRAME_COUNT)
     # sequence of filtered frames
     sq = []
@@ -51,15 +57,18 @@ if video is True:
     itdi = int(tws // 2)
     # sequence of tws frames that will be used for denoising
     l_tws = []
-else:  # WARNING: imread works ugly with unicode
+else:  # same to images denoising; tempfile needed due to ugly imread's support of unicode
+    # make local temporary copy of image
     taddr = tempfile.NamedTemporaryFile().name
     shutil.copyfile(iaddr, taddr)
     if colored is True:
         img = cv2.imread(taddr)
-    else:
+    else:   # argument 0 after address allows us to use grayscale image instead of coloured
         img = cv2.imread(taddr, 0)
+    # resolution of image
     vheight = img.shape[0]
     vwidth = img.shape[1]
+    # yes, we know, that single image consists of single frame, but we need that variable...
     num_frames = 1
 
 # resolution we need
@@ -100,6 +109,7 @@ if video is True:
                 vid.append(cv2.resize(frame, outres, 0, 0, interpolation=cv2.INTER_AREA))
             else:
                 # TODO: Make grayscale images working not like ~hit.
+                # all the code below is for grayscale images and it's commented due to unworking yet
                 # g_frame = np.asarray(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY), dtype=np.uint8)
                 # k_frame = np.ndarray(shape=(len(g_frame), len(g_frame[0]), 1), dtype=np.uint8)
                 # for k in range(len(g_frame)):
@@ -117,19 +127,18 @@ if video is True:
 
 if video is True:
     if colored:
-        # add unfiltered first itdi - 1 frames
+        # add unfiltered first itdi - 1 frames and resize it, just for be sure all is ok
         for i in range(itdi):
             sq.append(cv2.resize(
                 cv2.fastNlMeansDenoisingColored(vid[i], None, fs, hs, 7, ws),
                 outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
+        # denoise all possible frames in itdi range considering all the tws frames
         for k in range(len(vid) - itdi * 2):
             # create a list of temporalWindowSize frames
             l_tws = [vid[k + 1] for i in range(tws)]
 
-        # denoise itdi frame considering all the tws frames
         # 7 there is recommended size in pixels of the template patch that is used to compute weights (should be odd)
-
         # more method syntax details could be found there:
         # https://shimat.github.io/opencvsharp/html/d12fad98-53b0-c14a-6496-5c52ee633019.htm
             dst = cv2.fastNlMeansDenoisingColoredMulti(l_tws, itdi, tws, None, fs, hs, 7, ws)
@@ -147,7 +156,7 @@ if video is True:
                 cv2.fastNlMeansDenoisingColored(vid[len(vid) - itdi + i], None, fs, hs, 7, ws),
                 outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
-    else:   # comments are the same, so I'd not repeat them
+    else:   # comments for grayscale denoising mostly are the same, so I'd not repeat them
         for i in range(itdi):
             sq.append(cv2.resize(
                 cv2.fastNlMeansDenoising(vid[i], None, fs, 7, ws),
@@ -164,12 +173,13 @@ if video is True:
                 outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
     # write the frame TODO write source audio into the videofile
+    # (OpenCV can't write audio and FFMpeg doesn't work properly :(
     for i in vid:
         out.write(i)
 
     # free videofile
     out.release()
-else:
+else:   # it's image denoising time! Comment are just like in the video denosing, so look above if you need them
     if colored is True:
         cv2.imwrite(oaddr, cv2.resize(
             cv2.fastNlMeansDenoisingColored(img, None, fs, hs, 7, ws),
@@ -178,5 +188,8 @@ else:
         cv2.imwrite(oaddr, cv2.resize(
             cv2.fastNlMeansDenoising(img, None, fs, 7, ws),
             outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+    # free our temporary file
     tempfile.NamedTemporaryFile().close()
+
+# free all the memory used by OpenCV processes
 cv2.destroyAllWindows()
