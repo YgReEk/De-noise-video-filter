@@ -59,7 +59,7 @@ if video is True:
     l_tws = []
 else:  # same to images denoising; tempfile needed due to ugly imread's support of unicode
     # make local temporary copy of image
-    taddr = tempfile.NamedTemporaryFile().name
+    taddr = tempfile.NamedTemporaryFile().name + iaddr[iaddr.rfind('.'):]
     shutil.copyfile(iaddr, taddr)
     if colored is True:
         img = cv2.imread(taddr)
@@ -181,14 +181,15 @@ if video is True:
     out.release()
 else:   # it's image denoising time! Comment are just like in the video denosing, so look above if you need them
     if colored is True:
-        cv2.imwrite(oaddr, cv2.resize(
+        cv2.imwrite(taddr, cv2.resize(
             cv2.fastNlMeansDenoisingColored(img, None, fs, hs, 7, ws),
             outres, 0, 0, interpolation=cv2.INTER_LINEAR))
     else:
-        cv2.imwrite(oaddr, cv2.resize(
+        cv2.imwrite(taddr, cv2.resize(
             cv2.fastNlMeansDenoising(img, None, fs, 7, ws),
             outres, 0, 0, interpolation=cv2.INTER_LINEAR))
-    # free our temporary file
+    # copy denoised image from temporary file to original destination and then free temporary file
+    shutil.copyfile(taddr, oaddr)
     tempfile.NamedTemporaryFile().close()
 
 # free all the memory used by OpenCV processes
