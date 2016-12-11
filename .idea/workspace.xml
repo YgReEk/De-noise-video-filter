@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a98454e6-d578-406c-928d-e569a7d3739a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Main form.ui" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/icon.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/de-noise_lib.py" afterPath="$PROJECT_DIR$/de-noise_lib.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/de-noise_lib_bw.py" afterPath="$PROJECT_DIR$/de-noise_lib_bw.py" />
     </list>
     <ignored path="De-noise-video-filter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,6 +20,10 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/De-noise-video-filter$de_noise_lib.coverage" NAME="de-noise_lib Coverage Results" MODIFIED="1480792922699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/De-noise-video-filter$Main.coverage" NAME="Main Coverage Results" MODIFIED="1481455124824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/De-noise-video-filter$test.coverage" NAME="test Coverage Results" MODIFIED="1481450441863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/De-noise-video-filter$MainForm.coverage" NAME="MainForm Coverage Results" MODIFIED="1481458068021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/De-noise-video-filter$form.coverage" NAME="form Coverage Results" MODIFIED="1481456441061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -27,13 +34,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="de-noise_lib.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="de-noise_lib.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
+            <state relative-caret-position="229">
+              <caret line="138" column="13" lean-forward="true" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
               <folding>
-                <element signature="e#589#599#0" expanded="true" />
+                <element signature="e#1283#1293#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="de-noise_lib_bw.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/de-noise_lib_bw.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1520">
+              <caret line="108" column="74" lean-forward="false" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lib_functions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib_functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="143" column="24" lean-forward="true" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
+              <folding>
+                <element signature="e#1283#1293#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,9 +96,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/De-noise-video-filter/de-noise_lib_bw.py" />
+        <option value="$PROJECT_DIR$/de-noise_lib_bw.py" />
+        <option value="$PROJECT_DIR$/lib_functions.py" />
         <option value="$PROJECT_DIR$/de-noise_lib.py" />
+        <option value="$PROJECT_DIR$/form.py" />
+        <option value="$PROJECT_DIR$/MainForm.py" />
+        <option value="$PROJECT_DIR$/LicenseForm.py" />
+        <option value="$PROJECT_DIR$/HowToForm.py" />
+        <option value="$PROJECT_DIR$/AuthorForm.py" />
+        <option value="$PROJECT_DIR$/AboutForm.py" />
+        <option value="$PROJECT_DIR$/test.py" />
       </list>
     </option>
   </component>
@@ -121,6 +170,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resourses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="De-noise-video-filter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="De-noise-video-filter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="De-noise-video-filter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -139,14 +202,14 @@
     <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Игорь\PycharmProjects\De-noise-video-filter" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Игорь\PycharmProjects\De-noise-video-filter\" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Игорь\PycharmProjects\De-noise-video-filter" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.de-noise_lib">
+  <component name="RunManager" selected="Python.MainForm">
     <configuration default="false" name="de-noise_lib" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -161,6 +224,78 @@
       <module name="De-noise-video-filter" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/de-noise_lib.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="De-noise-video-filter" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="form" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="De-noise-video-filter" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/form.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="De-noise-video-filter" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainForm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="De-noise-video-filter" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainForm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -379,12 +514,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.de-noise_lib" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test" />
+      <item index="2" class="java.lang.String" itemvalue="Python.form" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Main" />
+      <item index="4" class="java.lang.String" itemvalue="Python.MainForm" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.de-noise_lib" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.MainForm" />
+        <item index="1" class="java.lang.String" itemvalue="Python.form" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Main" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
+        <item index="4" class="java.lang.String" itemvalue="Python.de-noise_lib" />
       </list>
     </recent_temporary>
   </component>
@@ -416,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480791678585</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Some more comments added">
+      <created>1480793040854</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480793040854</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -439,6 +589,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23044397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -447,7 +598,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -486,17 +636,186 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="109" selection-end-column="16" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib_bw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="108" column="74" lean-forward="false" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="97" column="21" lean-forward="false" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="109" selection-end-column="16" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib_bw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="108" column="74" lean-forward="false" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3808">
+          <caret line="232" column="25" lean-forward="true" selection-start-line="232" selection-start-column="25" selection-end-line="232" selection-end-column="25" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib_bw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="132" column="104" lean-forward="false" selection-start-line="132" selection-start-column="104" selection-end-line="132" selection-end-column="104" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib_bw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="132" column="104" lean-forward="true" selection-start-line="132" selection-start-column="104" selection-end-line="132" selection-end-column="104" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="25" column="14" lean-forward="false" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -506,7 +825,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -516,7 +835,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -526,7 +845,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -536,7 +855,7 @@
         <state relative-caret-position="187">
           <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -546,7 +865,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -556,7 +875,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -566,7 +885,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -576,7 +895,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -586,7 +905,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -596,7 +915,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -606,7 +925,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -616,7 +935,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -626,7 +945,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -636,7 +955,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -646,7 +965,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -656,7 +975,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -675,20 +994,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/de-noise_lib_bw.py">
+    <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state relative-caret-position="229">
+          <caret line="138" column="13" lean-forward="true" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+          <folding>
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/de-noise_lib.py">
+    <entry file="file://$PROJECT_DIR$/de-noise_lib_bw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
+        <state relative-caret-position="1520">
+          <caret line="108" column="74" lean-forward="false" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="143" column="24" lean-forward="true" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
           <folding>
-            <element signature="e#589#599#0" expanded="true" />
+            <element signature="e#1283#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main_form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LicenseForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1932">
+          <caret line="11" column="109" lean-forward="false" selection-start-line="11" selection-start-column="109" selection-end-line="11" selection-end-column="109" />
+          <folding>
+            <element signature="e#197#244#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3889">
+          <caret line="230" column="45" lean-forward="false" selection-start-line="230" selection-start-column="45" selection-end-line="230" selection-end-column="45" />
+          <folding>
+            <element signature="e#194#241#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HowToForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-383">
+          <caret line="11" column="109" lean-forward="false" selection-start-line="11" selection-start-column="109" selection-end-line="11" selection-end-column="109" />
+          <folding>
+            <element signature="e#195#242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AuthorForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="11" column="109" lean-forward="false" selection-start-line="11" selection-start-column="109" selection-end-line="11" selection-end-column="109" />
+          <folding>
+            <element signature="e#196#243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AboutForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="109" lean-forward="false" selection-start-line="11" selection-start-column="109" selection-end-line="11" selection-end-column="109" />
+          <folding>
+            <element signature="e#195#242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

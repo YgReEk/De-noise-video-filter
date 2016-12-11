@@ -45,6 +45,13 @@ hs = int(5)
 tws = int(5)
 # target image to denoise index in range(tws)
 itdi = int(tws // 2)
+# template patch size (# 7 is recommended size in pixels that is used to compute weights (should be odd))
+if int(outres[0]) < 1000:
+    tps = int(5)
+elif int(outres[0]) > 1600:
+    tps = int(9)
+else:
+    tps = int(7)
 
 # sequence of filtered frames
 sq = []
@@ -89,17 +96,17 @@ noisy = [np.uint8(np.clip(i, 0, 255)) for i in noisy]
 
 for i in range(itdi):
     sq.append(cv2.resize(
-        cv2.fastNlMeansDenoising(vid[i], None, fs, 7, ws),
+        cv2.fastNlMeansDenoising(vid[i], None, fs, tps, ws),
         outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
 for k in range(len(vid) - itdi * 2):
     img = [vid[k + 1] for i in range(tws)]
-    dst = cv2.fastNlMeansDenoisingMulti(img, itdi, tws, None, fs, 7, ws)
+    dst = cv2.fastNlMeansDenoisingMulti(img, itdi, tws, None, fs, tps, ws)
     sq.append(cv2.resize(dst, outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
 for i in range(itdi):
     sq.append(cv2.resize(
-        cv2.fastNlMeansDenoising(noisy[len(vid) - itdi + i], None, fs, 7, ws),
+        cv2.fastNlMeansDenoising(noisy[len(vid) - itdi + i], None, fs, tps, ws),
         outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
 # write the frame TODO write source audio into the videofile

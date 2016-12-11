@@ -1,6 +1,16 @@
+# De-noise videos filter is a python module / program that can be used for reducing noise level in videos or images
+#
 # Copyright © 2016 Nemikhin Igor. All rights reserved. Licensed under GNU GPLv3.
 # Author Nemikhin Igor.
-# License: http://www.gnu.org/licenses/gpl.html
+# This program is free software: you can redistribute it and / or modify it under the terms of the GNU General Public
+# License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+# warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with this program.
+# If not, see http://www.gnu.org/licenses/
 # Source code can be found there: https://github.com/YgReEk/De-noise-video-filter
 # Project is using OpenCV 3, which license can be found there: http://opencv.org/license.html
 
@@ -32,7 +42,7 @@ else:
 
 # define input address and output one, in the same directory
 iaddr = r'C:\Users\Игорь\test.png'
-oaddr = iaddr[:iaddr.rfind('\\')] + '\\' + 'output' + iaddr[iaddr.rfind('.'):]
+oaddr = iaddr[:iaddr.rfind('.')] + '-denoised' + iaddr[iaddr.rfind('.'):]
 
 # imported image/videofile
 if video is True:
@@ -91,6 +101,13 @@ else:
 # strength of filter (first fs for luminance noise, second for color noise; stronger filter -> less details)
 fs = int(4)
 hs = int(5)
+# template patch size (# 7 is recommended size in pixels that is used to compute weights (should be odd))
+if int(outres[0]) < 1000:
+    tps = int(5)
+elif int(outres[0]) > 1600:
+    tps = int(9)
+else:
+    tps = int(7)
 
 # estimated denoising time in minutes ~ 1.09e^(0.003*x.res); better fits 8.31088e^(1.73277×MP), but less useful:
 edt = 1.09 * math.exp(0.003 * outres[0])
@@ -124,53 +141,44 @@ if video is True:
 
     # free videofile
     cap.release()
+else:
+    img = cv2.resize(img, outres, 0, 0, interpolation=cv2.INTER_AREA)
 
 if video is True:
     if colored:
         # add unfiltered first itdi - 1 frames and resize it, just for be sure all is ok
         for i in range(itdi):
-            sq.append(cv2.resize(
-                cv2.fastNlMeansDenoisingColored(vid[i], None, fs, hs, 7, ws),
-                outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+            sq.append(cv2.fastNlMeansDenoisingColored(vid[i], None, fs, hs, tps, ws))
 
         # denoise all possible frames in itdi range considering all the tws frames
         for k in range(len(vid) - itdi * 2):
             # create a list of temporalWindowSize frames
             l_tws = [vid[k + 1] for i in range(tws)]
 
-        # 7 there is recommended size in pixels of the template patch that is used to compute weights (should be odd)
         # more method syntax details could be found there:
         # https://shimat.github.io/opencvsharp/html/d12fad98-53b0-c14a-6496-5c52ee633019.htm
-            dst = cv2.fastNlMeansDenoisingColoredMulti(l_tws, itdi, tws, None, fs, hs, 7, ws)
+            sq.append(cv2.fastNlMeansDenoisingColoredMulti(l_tws, itdi, tws, None, fs, hs, tps, ws))
 
         # there is a probability to use CUDA, but it'll be less accurate: there is no cuda method applicable to video
         # More here: http://docs.opencv.org/trunk/d1/d79/group__photo__denoise.html#ga21abc1c8b0e15f78cd3eff672cb6c476
 
         # merge all filtered images into sequence changing resolution to needed
         # more about resizing: http://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html#resize
-            sq.append(cv2.resize(dst, outres, 0, 0, interpolation=cv2.INTER_LINEAR))
 
         # add unfiltered last itdi - 1 frames
         for i in range(itdi):
-            sq.append(cv2.resize(
-                cv2.fastNlMeansDenoisingColored(vid[len(vid) - itdi + i], None, fs, hs, 7, ws),
-                outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+            sq.append(cv2.fastNlMeansDenoisingColored(vid[len(vid) - itdi + i], None, fs, hs, tps, ws))
 
     else:   # comments for grayscale denoising mostly are the same, so I'd not repeat them
         for i in range(itdi):
-            sq.append(cv2.resize(
-                cv2.fastNlMeansDenoising(vid[i], None, fs, 7, ws),
-                outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+            sq.append(cv2.fastNlMeansDenoising(vid[i], None, fs, tps, ws))
 
         for k in range(len(vid) - itdi * 2):
             l_tws = [vid[k + 1] for i in range(tws)]
-            dst = cv2.fastNlMeansDenoisingMulti(l_tws, itdi, tws, None, fs, 7, ws)
-            sq.append(cv2.resize(dst, outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+            sq.append(cv2.fastNlMeansDenoisingMulti(l_tws, itdi, tws, None, fs, tps, ws))
 
         for i in range(itdi):
-            sq.append(cv2.resize(
-                cv2.fastNlMeansDenoising(vid[len(vid) - itdi + i], None, fs, 7, ws),
-                outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+            sq.append(cv2.fastNlMeansDenoising(vid[len(vid) - itdi + i], None, fs, tps, ws))
 
     # write the frame TODO write source audio into the videofile
     # (OpenCV can't write audio and FFMpeg doesn't work properly :(
@@ -181,13 +189,9 @@ if video is True:
     out.release()
 else:   # it's image denoising time! Comment are just like in the video denosing, so look above if you need them
     if colored is True:
-        cv2.imwrite(taddr, cv2.resize(
-            cv2.fastNlMeansDenoisingColored(img, None, fs, hs, 7, ws),
-            outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+        cv2.imwrite(taddr, cv2.fastNlMeansDenoisingColored(img, None, fs, hs, tps, ws))
     else:
-        cv2.imwrite(taddr, cv2.resize(
-            cv2.fastNlMeansDenoising(img, None, fs, 7, ws),
-            outres, 0, 0, interpolation=cv2.INTER_LINEAR))
+        cv2.imwrite(taddr, cv2.fastNlMeansDenoising(img, None, fs, tps, ws))
     # copy denoised image from temporary file to original destination and then free temporary file
     shutil.copyfile(taddr, oaddr)
     tempfile.NamedTemporaryFile().close()

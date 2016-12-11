@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>460</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>De-noise Video Filter</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>resourses/icon.png</normaloff>resourses/icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>380</width>
+      <height>214</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Preview of original image / first frame</string>
+    </property>
+    <property name="whatsThis">
+     <string>Preview of the original image or first video frame.</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_2">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>10</y>
+      <width>380</width>
+      <height>214</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Preview of denoised image / first frame</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;Preview of the denoised image or first video frame (if it's ready, of course).&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>290</y>
+      <width>531</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Current progress</string>
+    </property>
+    <property name="whatsThis">
+     <string> Progress bar shows you progress of denoising (for video) or, at least, gives you information that it's complete.</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>387</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Start denoising</string>
+    </property>
+    <property name="whatsThis">
+     <string>&quot;Denoise it!&quot; is the magic button that'll do all the work if you define file path.</string>
+    </property>
+    <property name="text">
+     <string>Denoise it!</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>330</y>
+      <width>381</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Define filter luminance strenght (optional)</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;By these slider you can define filter strenght for luminance noise. Also remind that higher filter strengh means not only better denoising but fewer detailes remained also. So optimal settings are written beneath so you can return filter strenght to it's defaults easilly.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="maximum">
+     <number>30</number>
+    </property>
+    <property name="value">
+     <number>4</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_2">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>330</y>
+      <width>381</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Define filter color strenght (optional)</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;By thes sliders you can define filter strenght for color noise. Of course, if you set color flag to grayslace, filter color strenght is just a game, enjoy :) Also remind that higher filter strengh means not only better denoising but fewer detailes remained also. So optimal settings are written beneath so you can return filter strenght to it's defaults easilly.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="maximum">
+     <number>30</number>
+    </property>
+    <property name="value">
+     <number>5</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Default: 4</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>360</y>
+      <width>181</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Filter luminosity strenght</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>360</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Default: 5</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>360</y>
+      <width>211</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Filter color strenght</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>390</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open file:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>390</y>
+      <width>481</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>File path</string>
+    </property>
+    <property name="whatsThis">
+     <string>By this panel you can define file path manually or using standart system view, as you wish.</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>387</y>
+      <width>101</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Browse file</string>
+    </property>
+    <property name="whatsThis">
+     <string>By this panel you can define file path manually or using standart system view, as you wish.</string>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>290</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Define the output resolution (optional)</string>
+    </property>
+    <property name="whatsThis">
+     <string>Here you can define the resolution of output file if you want to change it. Please remind that higher resolution means moch more resourses to denoise it.</string>
+    </property>
+    <property name="maxVisibleItems">
+     <number>9</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>Same as source</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>VGA (640*480)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>SVGA (800*600)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>qHD (960*540)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>HD (1280*720)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>XGA+ (1152*864)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>HD+ (1600*900)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>UXGA (1600*1200)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FullHD (1920*1080)</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>240</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Estimated memory use: </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>240</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Estimated denoising time: </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>279</x>
+      <y>240</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>How much RAM (in Gb) you'll need for denoising</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;That panel gives you information about estimated memory use (in gigabytes) that you'll need for denoising.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_2">
+    <property name="geometry">
+     <rect>
+      <x>669</x>
+      <y>240</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>How much time (nearly) in minutes denoising will take</string>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;That panel gives you information about estimated denoising time (in minutes).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Grayscale</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuFilter_strenght">
+     <property name="title">
+      <string>Filter strenght</string>
+     </property>
+     <addaction name="actionLuminance_denoise"/>
+     <addaction name="actionColor_denoise"/>
+    </widget>
+    <widget class="QMenu" name="menuColor">
+     <property name="title">
+      <string>Color</string>
+     </property>
+     <addaction name="actionOn"/>
+     <addaction name="actionOff"/>
+    </widget>
+    <widget class="QMenu" name="menuResolution">
+     <property name="title">
+      <string>Resolution</string>
+     </property>
+     <addaction name="actionVGA_640_480"/>
+     <addaction name="actionQHD_960_540"/>
+     <addaction name="actionSVGA_800_600"/>
+     <addaction name="actionHD_1280_720"/>
+     <addaction name="actionXGA_1152_864"/>
+     <addaction name="actionHD_1600_1200"/>
+     <addaction name="actionHD_1600_1201"/>
+     <addaction name="actionFullHD_1920_1080"/>
+     <addaction name="separator"/>
+     <addaction name="actionSame_as_source"/>
+    </widget>
+    <addaction name="menuColor"/>
+    <addaction name="menuResolution"/>
+    <addaction name="menuFilter_strenght"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionLicense"/>
+    <addaction name="actionAuthor"/>
+    <addaction name="actionVersion"/>
+    <addaction name="actionHowTo"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionLuminance_denoise">
+   <property name="text">
+    <string>Luminance denoise</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F, Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionColor_denoise">
+   <property name="text">
+    <string>Color denoise</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="text">
+    <string>License</string>
+   </property>
+  </action>
+  <action name="actionAuthor">
+   <property name="text">
+    <string>Author</string>
+   </property>
+  </action>
+  <action name="actionVersion">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionHowTo">
+   <property name="text">
+    <string>HowTo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionOn">
+   <property name="text">
+    <string>On</string>
+   </property>
+  </action>
+  <action name="actionOff">
+   <property name="text">
+    <string>Off</string>
+   </property>
+  </action>
+  <action name="actionVGA_640_480">
+   <property name="text">
+    <string>VGA (640*480)</string>
+   </property>
+  </action>
+  <action name="actionQHD_960_540">
+   <property name="text">
+    <string>qHD (960*540)</string>
+   </property>
+  </action>
+  <action name="actionSVGA_800_600">
+   <property name="text">
+    <string>SVGA (800*600)</string>
+   </property>
+  </action>
+  <action name="actionHD_1280_720">
+   <property name="text">
+    <string>HD (1280*720)</string>
+   </property>
+  </action>
+  <action name="actionXGA_1152_864">
+   <property name="text">
+    <string>XGA+ (1152*864)</string>
+   </property>
+  </action>
+  <action name="actionHD_1600_1200">
+   <property name="text">
+    <string>HD+ (1600*900)</string>
+   </property>
+  </action>
+  <action name="actionHD_1600_1201">
+   <property name="text">
+    <string>HD+ (1600*1200)</string>
+   </property>
+  </action>
+  <action name="actionFullHD_1920_1080">
+   <property name="text">
+    <string>FullHD (1920*1080)</string>
+   </property>
+  </action>
+  <action name="actionSame_as_source">
+   <property name="text">
+    <string>Same as source</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
