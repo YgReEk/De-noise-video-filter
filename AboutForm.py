@@ -38,6 +38,15 @@ class Ui_About(object):
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">This is beta version and it works only with 8-bit depth png or avi files. It can\'t write source audio to output video and autotransform video in grayscale yet.</span></p></body></html>"))
 
 
+def init():
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    About = QtWidgets.QDialog()
+    ui = Ui_About()
+    ui.setupUi(About)
+    About.show()
+    app.exec_()
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

@@ -61,6 +61,15 @@ class Ui_HowTo(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Used formula is 8.31088e^(1.73277×MP). It\'s the result of several aproximations.</p></body></html>"))
 
 
+def init():
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    HowTo = QtWidgets.QDialog()
+    ui = Ui_HowTo()
+    ui.setupUi(HowTo)
+    HowTo.show()
+    app.exec_()
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

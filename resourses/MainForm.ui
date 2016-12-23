@@ -18,7 +18,7 @@
     <normaloff>resourses/icon.png</normaloff>resourses/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QGraphicsView" name="Original_preview">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -34,7 +34,7 @@
      <string>Preview of the original image or first video frame.</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView_2">
+   <widget class="QGraphicsView" name="Denoised_preview">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -69,7 +69,7 @@
      <number>0</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Denoise_Button">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -88,7 +88,7 @@
      <string>Denoise it!</string>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider">
+   <widget class="QSlider" name="FS_luminocity_slider">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -112,8 +112,11 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBelow</enum>
+    </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_2">
+   <widget class="QSlider" name="FS_color_slider">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -137,8 +140,11 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBelow</enum>
+    </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="Default_fs_luminocity_label">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -151,7 +157,7 @@
      <string>Default: 4</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="FS_luminocity_label">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -167,7 +173,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="Default_fs_color_label">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -183,7 +189,7 @@
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="FS_color_label">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -199,12 +205,12 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="Open_file_label">
     <property name="geometry">
      <rect>
       <x>120</x>
       <y>390</y>
-      <width>61</width>
+      <width>51</width>
       <height>21</height>
      </rect>
     </property>
@@ -215,7 +221,7 @@
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="Input_file_lineEdit">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -231,7 +237,7 @@
      <string>By this panel you can define file path manually or using standart system view, as you wish.</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="Browse_button">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -250,7 +256,7 @@
      <string>Browse</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="Resolution_comboBox">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -314,7 +320,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="EMU_label">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -330,7 +336,7 @@
      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="EDT_label">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -346,7 +352,7 @@
      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
+   <widget class="QLCDNumber" name="EMU_lcd">
     <property name="geometry">
      <rect>
       <x>279</x>
@@ -362,7 +368,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8.25pt;&quot;&gt;That panel gives you information about estimated memory use (in gigabytes) that you'll need for denoising.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber_2">
+   <widget class="QLCDNumber" name="EDT_lcd">
     <property name="geometry">
      <rect>
       <x>669</x>
@@ -378,12 +384,12 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;That panel gives you information about estimated denoising time (in minutes).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="Grayscale_flag">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>290</y>
-      <width>131</width>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
@@ -405,9 +411,9 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpen"/>
+    <addaction name="Menu_File_actionOpen"/>
     <addaction name="separator"/>
-    <addaction name="actionExit"/>
+    <addaction name="Menu_File_actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -417,30 +423,30 @@
      <property name="title">
       <string>Filter strenght</string>
      </property>
-     <addaction name="actionLuminance_denoise"/>
-     <addaction name="actionColor_denoise"/>
+     <addaction name="Menu_fs_actionLuminance_denoise"/>
+     <addaction name="Menu_fs_actionColor_denoise"/>
     </widget>
     <widget class="QMenu" name="menuColor">
      <property name="title">
       <string>Color</string>
      </property>
-     <addaction name="actionOn"/>
-     <addaction name="actionOff"/>
+     <addaction name="Menu_color_actionOn"/>
+     <addaction name="Menu_color_actionOff"/>
     </widget>
     <widget class="QMenu" name="menuResolution">
      <property name="title">
       <string>Resolution</string>
      </property>
-     <addaction name="actionVGA_640_480"/>
-     <addaction name="actionQHD_960_540"/>
-     <addaction name="actionSVGA_800_600"/>
-     <addaction name="actionHD_1280_720"/>
-     <addaction name="actionXGA_1152_864"/>
-     <addaction name="actionHD_1600_1200"/>
-     <addaction name="actionHD_1600_1201"/>
-     <addaction name="actionFullHD_1920_1080"/>
+     <addaction name="Menu_resolution_actionVGA_640_480"/>
+     <addaction name="Menu_resolution_actionQHD_960_540"/>
+     <addaction name="Menu_resolution_actionSVGA_800_600"/>
+     <addaction name="Menu_resolution_actionHD_1280_720"/>
+     <addaction name="Menu_resolution_actionXGA_1152_864"/>
+     <addaction name="Menu_resolution_actionHD_1600_900"/>
+     <addaction name="Menu_resolution_actionHD_1600_1200"/>
+     <addaction name="Menu_resolution_actionFullHD_1920_1080"/>
      <addaction name="separator"/>
-     <addaction name="actionSame_as_source"/>
+     <addaction name="Menu_resolution_actionSame_as_source"/>
     </widget>
     <addaction name="menuColor"/>
     <addaction name="menuResolution"/>
@@ -460,7 +466,7 @@
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionOpen">
+  <action name="Menu_File_actionOpen">
    <property name="text">
     <string>Open</string>
    </property>
@@ -468,7 +474,7 @@
     <string>Ctrl+O</string>
    </property>
   </action>
-  <action name="actionExit">
+  <action name="Menu_File_actionExit">
    <property name="text">
     <string>Exit</string>
    </property>
@@ -476,7 +482,7 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="actionLuminance_denoise">
+  <action name="Menu_fs_actionLuminance_denoise">
    <property name="text">
     <string>Luminance denoise</string>
    </property>
@@ -484,7 +490,7 @@
     <string>Ctrl+F, Ctrl+L</string>
    </property>
   </action>
-  <action name="actionColor_denoise">
+  <action name="Menu_fs_actionColor_denoise">
    <property name="text">
     <string>Color denoise</string>
    </property>
@@ -515,57 +521,57 @@
     <string>Ctrl+H</string>
    </property>
   </action>
-  <action name="actionOn">
+  <action name="Menu_color_actionOn">
    <property name="text">
     <string>On</string>
    </property>
   </action>
-  <action name="actionOff">
+  <action name="Menu_color_actionOff">
    <property name="text">
     <string>Off</string>
    </property>
   </action>
-  <action name="actionVGA_640_480">
+  <action name="Menu_resolution_actionVGA_640_480">
    <property name="text">
     <string>VGA (640*480)</string>
    </property>
   </action>
-  <action name="actionQHD_960_540">
+  <action name="Menu_resolution_actionQHD_960_540">
    <property name="text">
     <string>qHD (960*540)</string>
    </property>
   </action>
-  <action name="actionSVGA_800_600">
+  <action name="Menu_resolution_actionSVGA_800_600">
    <property name="text">
     <string>SVGA (800*600)</string>
    </property>
   </action>
-  <action name="actionHD_1280_720">
+  <action name="Menu_resolution_actionHD_1280_720">
    <property name="text">
     <string>HD (1280*720)</string>
    </property>
   </action>
-  <action name="actionXGA_1152_864">
+  <action name="Menu_resolution_actionXGA_1152_864">
    <property name="text">
     <string>XGA+ (1152*864)</string>
    </property>
   </action>
-  <action name="actionHD_1600_1200">
+  <action name="Menu_resolution_actionHD_1600_900">
    <property name="text">
     <string>HD+ (1600*900)</string>
    </property>
   </action>
-  <action name="actionHD_1600_1201">
+  <action name="Menu_resolution_actionHD_1600_1200">
    <property name="text">
     <string>HD+ (1600*1200)</string>
    </property>
   </action>
-  <action name="actionFullHD_1920_1080">
+  <action name="Menu_resolution_actionFullHD_1920_1080">
    <property name="text">
     <string>FullHD (1920*1080)</string>
    </property>
   </action>
-  <action name="actionSame_as_source">
+  <action name="Menu_resolution_actionSame_as_source">
    <property name="text">
     <string>Same as source</string>
    </property>

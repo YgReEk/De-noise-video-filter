@@ -148,6 +148,16 @@ class Ui_LicenseDialog(object):
         self.label_2.setText(_translate("LicenseDialog", "<html><head/><body><p><span style=\" font-size:16pt;\">Copyright © 2016 Nemikhin Igor. All rights reserved. Licensed under GNU GPLv3.</span></p></body></html>"))
 
 
+def init():
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    LicenseDialog = QtWidgets.QDialog()
+    ui = Ui_LicenseDialog()
+    ui.setupUi(LicenseDialog)
+    LicenseDialog.show()
+    app.exec_()
+    # sys.exit(app.exec_())
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

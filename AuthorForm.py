@@ -44,6 +44,16 @@ class Ui_Author(object):
         self.label_4.setText(_translate("Author", "<html><head/><body><p><span style=\" font-size:10pt;\">VK: vk.com/nemihin</span></p></body></html>"))
 
 
+
+def init():
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Author = QtWidgets.QDialog()
+    ui = Ui_Author()
+    ui.setupUi(Author)
+    Author.show()
+    app.exec_()
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
